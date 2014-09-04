@@ -1,0 +1,53 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.deletethis</groupId>
+   <artifactId>install-oracle-client</artifactId>
+   <version>1.0.0</version>
+
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-install-plugin</artifactId>
+               <version>2.5.1</version>
+               <executions>
+                   <execution>
+                       <id>default-install</id>
+                       <phase>none</phase>
+                       <goals>
+                           <goal>install</goal>
+                       </goals>
+                   </execution>
+                   <execution>
+                       <id>inst_1</id>
+                       <phase>initialize</phase>
+                       <goals>
+                           <goal>install-file</goal>
+                       </goals>
+                       <configuration>
+                           <file>../bin/ojdbc6.jar</file>
+                           <artifactId>oracle-client</artifactId>
+                           <groupId>org.deletethis</groupId>
+                           <version>6</version>
+                           <packaging>jar</packaging>
+                       </configuration>
+                   </execution>
+               </executions>
+           </plugin>
+
+           <plugin>
+               <artifactId>maven-jar-plugin</artifactId>
+               <version>2.3.2</version>
+               <executions>
+                   <execution>
+                       <id>default-jar</id>
+                       <phase>none</phase>
+                       <goals>
+                           <goal>jar</goal>
+                       </goals>
+                   </execution>
+               </executions>
+           </plugin>
+       </plugins>
+   </build>
+</project>

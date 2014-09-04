@@ -1,0 +1,2 @@
+#!/bin/bash
+java -cp ../target/dbexp-1.0.jar:ojdbc6.jar org.deletethis.exp.Main "$@"
